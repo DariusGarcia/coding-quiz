@@ -14,7 +14,7 @@
 <body>
     <nav class="navbar">
         <section class="navbar-left"><a href="results.html">View high scores</a></section>
-        <section class="navbar-right">Time: <span id="time">0</span></section>
+        <section class="navbar-right">Time: <span id="time">0 </span> seconds</section>
     </nav>
     <header>Coding Quiz</header>
     <main>
@@ -28,13 +28,13 @@
             </article>
 
             <!-- Questions card -->
-            <section class="hide" id="questionsCard">
+            <section class="hide" id="questionsCard" data-initial="hidden">
                 <h2 id="question-title"></h2>
                 <div class="choices" id="choices"></div>
             </section>
 
             <!-- End screen -->
-            <section id="gameOverCard" class="hide">
+            <section id="gameOverCard" class="hide" data-initial="hidden">
                 <h2>All done!</h2>
                 <p>Your final score is <span id="final-score"></span>.</p>
                 <p>
@@ -42,7 +42,7 @@
                     <button id="submit">Submit</button>
                 </p>
             </section>
-            <section class="resultsCard hide" id="resultsCard"></section>
+            <section class="resultsCard" id="resultsCard"></section>
         </section>
     </main>
 
