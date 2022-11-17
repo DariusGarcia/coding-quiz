@@ -51,15 +51,6 @@ header {
     left: 10px;
 }
 
-.feedback {
-    font-style: italic;
-    font-size: 120%;
-    margin-top: 20px;
-    padding-top: 10px;
-    color: gray;
-    border-top: 2px solid #ccc;
-}
-
 .timer {
     position: absolute;
     top: 10px;
@@ -68,46 +59,55 @@ header {
 
 button {
     display: inline-block;
-    margin: 5px;
+    width: 35%;
+    padding: 1rem;
     cursor: pointer;
     font-size: 100%;
-    background-color: #0fe0cf;
     border-radius: 5px;
-    padding: 2px 10px;
     color: white;
+    background-color: #ff0e06;
     border: 0;
-    transition: background-color 0.1s;
-}
-
-button:hover {}
-
-.choices button {
-    display: block;
 }
 
 [data-initial='visible'] {
-    display: inline;
+    display: flex;
 }
 
 [data-initial='hidden'] {
     display: none;
 }
 
-input[type="text"] {
-    font-size: 100%;
+.start {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
 }
+
+.optionsBtn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+.optionsBtn:hover {
+    opacity: 75%;
+}
+
+#questionsCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#question-title {}
 
 ol {
-    padding-left: 0px;
-    max-height: 400px;
-    overflow: auto;
-}
-
-li {
-    padding: 5px;
-    list-style: decimal inside none;
-}
-
-li:nth-child(odd) {
-    background-color: #f3edfc;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+    align-items: center;
 }

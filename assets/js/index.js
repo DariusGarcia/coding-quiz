@@ -33,6 +33,7 @@ var questionBank = [
 ]
 
 var countdown = 30
+var score = 0
 
 // selecting the elements
 var timerEl = document.getElementById('time')
@@ -52,11 +53,6 @@ function startGame() {
 	questionsCardEl.setAttribute('data-initial', 'visible')
 	setInterval(clockTick, 1000)
 	populateQuestions()
-	let index = 0
-	let questionIndex = questionBank[index]
-	var questionTitleEl = document.getElementById('question-title')
-	questionTitleEl.innerText = questionIndex.questions
-	console.log(questionTitleEl)
 }
 
 function stopGame() {}
@@ -75,7 +71,16 @@ function populateQuestions() {
 	let index = 0
 	let questionIndex = questionBank[index]
 	var questionTitleEl = document.getElementById('question-title')
-	questionTitleEl.textContext = questionBank[0].questions
-}
+	questionTitleEl.innerText = questionIndex.questions
 
-function calculateScore() {}
+	var listChoices = document.querySelector('ol')
+	// for loop to create an element for each answer choice.
+	for (let i = 0; i < questionIndex.options.length; i++) {
+		var buttonIndex = questionIndex.options[i]
+		var optionListItem = document.createElement('button')
+		optionListItem.setAttribute('class', 'optionsBtn')
+		optionListItem.innerText = questionIndex.options[i]
+		listChoices.appendChild(optionListItem)
+	}
+}
+// function calculateScore() {}
