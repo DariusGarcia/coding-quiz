@@ -43,7 +43,7 @@ var gameOverCardEl = document.getElementById('gameOverCard')
 var resultsCardEl = document.getElementById('resultsCard')
 var startGameBtn = document.getElementById('start')
 var submitBtn = document.getElementById('submit')
-
+var optionsEl = document.getElementById('options')
 // listening for when user clicks the start button to begin the quiz.
 startGameBtn.addEventListener('click', startGame)
 
@@ -66,10 +66,11 @@ function clockTick() {
 		stopGame()
 	}
 }
+var index = 0
+var questionIndex = questionBank[index]
+
 function populateQuestions() {
 	// get the first question in the questions bank array
-	let index = 0
-	let questionIndex = questionBank[index]
 	var questionTitleEl = document.getElementById('question-title')
 	questionTitleEl.innerText = questionIndex.questions
 
@@ -79,8 +80,27 @@ function populateQuestions() {
 		var buttonIndex = questionIndex.options[i]
 		var optionListItem = document.createElement('button')
 		optionListItem.setAttribute('class', 'optionsBtn')
-		optionListItem.innerText = questionIndex.options[i]
+		optionListItem.setAttribute('answer', buttonIndex)
+		optionListItem.innerText = buttonIndex
 		listChoices.appendChild(optionListItem)
 	}
 }
+
+// function to check if the selected answer is the correct answer
+console.log([questionIndex].answer)
+
+function isCorrectAnswer(event) {
+	let optionBtnEvent = event.target
+
+	if (optionBtnEvent.getAttribute('answer') !== questionIndex.answer) {
+		console.log('wrong')
+	}
+	if (optionBtnEvent.getAttribute('answer') == questionIndex['answer']) {
+		optionListItem.addEventListener('click', isCorrectAnswer)
+		window.alert('right')
+	}
+}
+
+optionsEl.addEventListener('click', isCorrectAnswer)
+
 // function calculateScore() {}
